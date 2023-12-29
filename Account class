@@ -1,0 +1,36 @@
+public class Account {
+    private double balance;
+
+    // Constructor with no arguments
+    public Account() {
+        this.balance = 0;
+    }
+
+    // Constructor with initial balance argument
+    public Account(double initialBalance) {
+        this.balance = initialBalance;
+    }
+
+    // Method to deposit amount
+    public void deposit(double amount) {
+        this.balance += amount;
+        System.out.println("Deposited $" + amount + ". New balance: $" + this.balance);
+    }
+
+    // Method to withdraw amount
+    public void withdraw(double amount) {
+            this.balance -= amount;
+            System.out.println("Withdrew $" + amount + ". New balance: $" + this.balance);
+    }
+
+    // Method to display balance
+    public void displayBalance() {
+        System.out.println("Current balance: $" + this.balance);
+    }
+    public static void main(String[] args) {
+        Account account1 = new Account(1000);
+        account1.deposit(500);
+        account1.withdraw(200);
+        account1.displayBalance();
+    }
+}
