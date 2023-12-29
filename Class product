@@ -1,0 +1,55 @@
+import java.util.Scanner;
+class Product {
+    private int pid;
+    private double price;
+    private int quantity;
+
+    // Parameterized constructor
+    public Product(int pid, double price, int quantity) {
+        this.pid = pid;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
+    // Getter for pid
+    public int getPid() {
+        return pid;
+    }
+
+    // Getter for price
+    public double getPrice() {
+        return price;
+    }
+
+    // Getter for quantity
+    public int getQuantity() {
+        return quantity;
+    }
+}
+
+public class XYZ {
+    public static void main(String[] args) {
+        // Accepting product information from the user and storing in an array
+        Product[] products = new Product[5];
+        Scanner scanner = new Scanner(System.in);
+
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Enter details for Product " + (i + 1) + ":");
+            System.out.print("Enter PID: ");
+            int pid = scanner.nextInt();
+            System.out.print("Enter Price: ");
+            double price = scanner.nextDouble();
+            System.out.print("Enter Quantity: ");
+            int quantity = scanner.nextInt();
+
+            products[i] = new Product(pid, price, quantity);
+        }
+
+        // Finding Pid of the product with the highest price
+        int highestPricePid = findProductWithHighestPrice(products);
+        System.out.println("Pid of the product with the highest price: " + highestPricePid);
+
+        // Calculating and printing the total amount spent on all products
+        double totalAmountSpent = calculateTotalAmountSpent(products);
+        System.out.println("Total amount spent on all products: " + totalAmountSpent);
+    }
